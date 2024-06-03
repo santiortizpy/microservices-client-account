@@ -1,0 +1,12 @@
+target/*.jar
+*.log
+*.class
+*.jar
+*.war
+*.zip
+*.iml
+*.iws
+.idea/
+*.swp
+.sass-cache/
+.git
