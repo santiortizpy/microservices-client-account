@@ -11,13 +11,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @DiscriminatorValue("cliente")
-@PrimaryKeyJoinColumn(name = "persona_id")
 public class Cliente extends Persona {
 
 
-    @Column(name = "contrasenha")
+    @Column(name = "contrasenha", nullable = false)
     private String contrasenha;
-    @Column(name = "estado")
+    @Column(name = "estado", nullable = false)
     private boolean estado;
 
    

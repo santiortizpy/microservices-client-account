@@ -27,7 +27,7 @@ public class ClienteServiceTest {
         cliente.setContrasenha("123456");
         cliente.setEstado(true);
         cliente.setGenero("Masculino");
-        cliente.setId(1L);
+        //cliente.setId(1L);
         Cliente newClient = service.createCliente(cliente);
         assertNotNull(newClient);
         assertEquals("Santiago", newClient.getNombre());

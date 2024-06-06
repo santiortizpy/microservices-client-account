@@ -8,26 +8,26 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @DiscriminatorColumn( name = "persona_type")
-@Inheritance(strategy = InheritanceType.JOINED)
-public  class Persona {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "nombre")
+
+    @Column(name = "nombre",nullable = false, length = 100)
     private String nombre;
-    @Column(name = "genero")
+    @Column(name = "genero", length = 10)
     private String genero;
     @Column(name = "edad")
     private int edad;
-    @Column(name = "identificacion")
+    @Column(name = "identificacion", unique = true, length = 50, nullable = false)
     private String identificacion;
+
     @Column(name = "direccion")
     private String direccion;
-    @Column(name = "telefono")
+    @Column(name = "telefono", length = 20)
     private String telefono;
 
     

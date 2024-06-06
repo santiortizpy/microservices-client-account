@@ -66,6 +66,7 @@ public class ClienteController {
      private ClienteDto clientToClientDto(Cliente cliente){
             ClienteDto clienteDto = new ClienteDto();
             clienteDto.setContrasenha(cliente.getContrasenha());
+            clienteDto.setGenero(cliente.getGenero());
             clienteDto.setDireccion(cliente.getDireccion());
             clienteDto.setEdad(cliente.getEdad());
             clienteDto.setEstado(cliente.isEstado());
@@ -79,6 +80,7 @@ public class ClienteController {
             Cliente cliente = new Cliente();
             cliente.setContrasenha(clienteDto.getContrasenha());
             cliente.setDireccion(clienteDto.getDireccion());
+            cliente.setGenero(clienteDto.getGenero());
             cliente.setEdad(clienteDto.getEdad());
             cliente.setEstado(clienteDto.isEstado());
             cliente.setIdentificacion(clienteDto.getIdentificacion());

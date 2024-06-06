@@ -15,8 +15,10 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
      public Cliente createCliente(Cliente cliente){
-        Cliente clienteGuardado = clienteRepository.save(cliente);
-        return clienteGuardado;
+
+             return clienteRepository.save(cliente);
+
+
     }
     public Cliente getClientById(Long id) {
         return clienteRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Cliente no encontrado con Id: "+ id));
@@ -34,6 +36,10 @@ public class ClienteService {
             cliente.setEdad(clienteActualizado.getEdad());
             cliente.setDireccion(clienteActualizado.getDireccion());
             cliente.setTelefono(clienteActualizado.getTelefono());
+            cliente.setGenero(clienteActualizado.getGenero());
+            cliente.setEstado(clienteActualizado.isEstado());
+            cliente.setContrasenha(clienteActualizado.getContrasenha());
+            cliente.setIdentificacion(clienteActualizado.getIdentificacion());
             return clienteRepository.save(cliente);
         } 
         return null;
@@ -41,5 +47,9 @@ public class ClienteService {
 
     public void deleteClientById(Long id) {
         clienteRepository.deleteById(id);
+    }
+
+    public Cliente getClientByIdentificacion(String identificacion) {
+        return clienteRepository.findByIdentificacion(identificacion);
     }
 }
