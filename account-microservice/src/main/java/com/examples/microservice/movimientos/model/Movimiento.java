@@ -18,11 +18,11 @@ public class Movimiento {
     private Long id;
     @Column(name = "fecha")
     private Date Fecha;
-    @Column(name = "tipo_movimiento")
+    @Column(name = "tipo_movimiento", length = 50,nullable = false)
     private String tipoMovimiento;
-    @Column(name = "valor")
+    @Column(name = "valor", nullable = false)
     private double valor;
-    @Column(name = "saldo")
+    @Column(name = "saldo", nullable = false)
     private double saldo;
     // Generate getters and setters
     @ManyToOne(fetch = FetchType.LAZY)
