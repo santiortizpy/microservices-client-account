@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PersonaDto {
     private Long id;
-    private String name;
+    private String nombre;
     private String genero;
     private int edad;
     private String identificacion;

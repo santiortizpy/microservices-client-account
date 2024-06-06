@@ -13,12 +13,8 @@ import com.example.microservice.persona.repository.ClienteRepository;
 public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
-    @Autowired
-    private KafkaTemplate<String, Cliente> kafkaTemplate;
 
-
-
-    public Cliente createCliente(Cliente cliente){
+     public Cliente createCliente(Cliente cliente){
         Cliente clienteGuardado = clienteRepository.save(cliente);
         return clienteGuardado;
     }
@@ -34,7 +30,7 @@ public class ClienteService {
         Optional<Cliente> clientOpt = clienteRepository.findById(id);
         if(clientOpt.isPresent()){
             Cliente cliente = clientOpt.get();
-            cliente.setName(clienteActualizado.getName());
+            cliente.setNombre(clienteActualizado.getNombre());
             cliente.setEdad(clienteActualizado.getEdad());
             cliente.setDireccion(clienteActualizado.getDireccion());
             cliente.setTelefono(clienteActualizado.getTelefono());

@@ -1,6 +1,6 @@
 package com.example.microservice.persona.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,10 +10,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@DiscriminatorValue("cliente")
+@PrimaryKeyJoinColumn(name = "persona_id")
 public class Cliente extends Persona {
 
-    private String clienteId;
-    private String contrasena;
+
+    @Column(name = "contrasenha")
+    private String contrasenha;
+    @Column(name = "estado")
     private boolean estado;
 
    

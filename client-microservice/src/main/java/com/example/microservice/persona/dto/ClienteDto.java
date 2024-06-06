@@ -9,8 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ClienteDto extends  PersonaDto {
 
-    private String clienteId;
-    private String contrasena;
+
+    private String contrasenha;
     private boolean estado;
 
    

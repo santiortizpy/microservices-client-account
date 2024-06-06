@@ -19,13 +19,18 @@ public class ClienteServiceTest {
     public void testCreateClient(){
 
         Cliente cliente = new Cliente();
-        cliente.setName("Juan");
+        cliente.setNombre("Santiago");
         cliente.setEdad(25);
         cliente.setDireccion("Calle 123");
         cliente.setTelefono("123456");
+        cliente.setIdentificacion("123456987");
+        cliente.setContrasenha("123456");
+        cliente.setEstado(true);
+        cliente.setGenero("Masculino");
+        cliente.setId(1L);
         Cliente newClient = service.createCliente(cliente);
         assertNotNull(newClient);
-        assertEquals("Juan", newClient.getName());
+        assertEquals("Santiago", newClient.getNombre());
         assertEquals(25, newClient.getEdad());
         assertEquals("Calle 123", newClient.getDireccion());
         assertEquals("123456", newClient.getTelefono());

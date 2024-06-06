@@ -65,28 +65,26 @@ public class ClienteController {
 
      private ClienteDto clientToClientDto(Cliente cliente){
             ClienteDto clienteDto = new ClienteDto();
-            clienteDto.setContrasena(cliente.getContrasena());
+            clienteDto.setContrasenha(cliente.getContrasenha());
             clienteDto.setDireccion(cliente.getDireccion());
             clienteDto.setEdad(cliente.getEdad());
             clienteDto.setEstado(cliente.isEstado());
             clienteDto.setIdentificacion(cliente.getIdentificacion());
             clienteDto.setTelefono(cliente.getTelefono());
             clienteDto.setId(cliente.getId());
-            clienteDto.setName(cliente.getName());
-            clienteDto.setClienteId(cliente.getClienteId());
+            clienteDto.setNombre(cliente.getNombre());
             return clienteDto;}
         
             private Cliente clientDtoToClient(ClienteDto clienteDto){
             Cliente cliente = new Cliente();
-            cliente.setContrasena(clienteDto.getContrasena());
+            cliente.setContrasenha(clienteDto.getContrasenha());
             cliente.setDireccion(clienteDto.getDireccion());
             cliente.setEdad(clienteDto.getEdad());
             cliente.setEstado(clienteDto.isEstado());
             cliente.setIdentificacion(clienteDto.getIdentificacion());
             cliente.setTelefono(clienteDto.getTelefono());
             cliente.setId(clienteDto.getId());
-            cliente.setName(clienteDto.getName());
-            cliente.setClienteId(clienteDto.getClienteId());
+            cliente.setNombre(clienteDto.getNombre());
             return cliente;
         }
 
