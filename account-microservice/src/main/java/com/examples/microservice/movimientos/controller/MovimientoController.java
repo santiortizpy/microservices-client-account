@@ -17,9 +17,9 @@ public class MovimientoController {
     @Autowired
     private MovimientoService movimientoService;
 
-    @PostMapping("cuenta/{cuentaId}")
-    public ResponseEntity<MovimientoDto> createMovimiento(@PathVariable  Long cuentaId, @RequestBody MovimientoDto movimientoDto){
-        Movimiento movimiento = movimientoService.createMovimiento(cuentaId,movimientoDtoToMovimiento(movimientoDto));
+    @PostMapping("cuenta/{numeroCuenta}")
+    public ResponseEntity<MovimientoDto> createMovimiento(@PathVariable  String numeroCuenta, @RequestBody MovimientoDto movimientoDto){
+        Movimiento movimiento = movimientoService.createMovimiento(numeroCuenta,movimientoDtoToMovimiento(movimientoDto));
         return new ResponseEntity<>(movimientoToMovimientoDto(movimiento), HttpStatus.CREATED);
     }
 

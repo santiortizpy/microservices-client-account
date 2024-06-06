@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ClienteDTO extends PersonaDTO {
     private String clienteId;
-    private String contrasena;
+    private String contrasenha;
     private boolean estado;
 
 }

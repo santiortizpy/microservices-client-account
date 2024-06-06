@@ -1,5 +1,6 @@
 package com.examples.microservice.movimientos.dto;
 
+import com.examples.microservice.movimientos.model.Cuenta;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,5 @@ public class MovimientoDto {
     private String tipoMovimiento;
     private double valor;
     private double saldo;
+    private Cuenta cuenta;
 }

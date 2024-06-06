@@ -14,10 +14,15 @@ import lombok.NoArgsConstructor;
 public class Movimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "movimiento_id")
     private Long id;
+    @Column(name = "fecha")
     private Date Fecha;
+    @Column(name = "tipo_movimiento")
     private String tipoMovimiento;
+    @Column(name = "valor")
     private double valor;
+    @Column(name = "saldo")
     private double saldo;
     // Generate getters and setters
     @ManyToOne(fetch = FetchType.LAZY)
