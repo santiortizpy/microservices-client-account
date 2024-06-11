@@ -26,7 +26,7 @@ En el proyecto principal en la carpeta microservices-client-account
 ## Correr script para poblar Base de datos
 
 una vez tengamos los servicios corriendo, debemos crear las talbas y poblarla para ello desde la terminal de comando en la carpeta de microservices-client-account realizamos la siguiente ejecución:
- **`docker exec -i microservices-client-account-db-1 mysql -u account -paccount < BaseDeDatos.sql`**
+ **`docker exec -i microservices-client-account-db-1 mysql -u root -proot < BaseDeDatos.sql`**
 
 ## Descargar y ejecutar Colecciones de postman
 Una vez tengamos todo corriendo es podemos realizar las pruebas de los servicios desde el POSTMAN, el cual se puede encontrar la colección dentro del proyecto principal.

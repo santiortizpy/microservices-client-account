@@ -60,12 +60,12 @@ public class MovimientoController {
         movimiento.setSaldo(movimientoDto.getSaldo());
         movimiento.setId(movimientoDto.getId());
         Cuenta cuenta = new Cuenta();
-        cuenta.setTipoCuenta(movimiento.getCuenta().getTipoCuenta());
-        cuenta.setNumeroCuenta(movimiento.getCuenta().getNumeroCuenta());
-        cuenta.setSaldoInicial(movimiento.getCuenta().getSaldoInicial());
-        cuenta.setEstado(movimiento.getCuenta().isEstado());
-        cuenta.setId(movimiento.getCuenta().getId());
-        cuenta.setClienteId(movimiento.getCuenta().getClienteId());
+        cuenta.setTipoCuenta(movimientoDto.getCuenta().getTipoCuenta());
+        cuenta.setNumeroCuenta(movimientoDto.getCuenta().getNumeroCuenta());
+        cuenta.setSaldoInicial(movimientoDto.getCuenta().getSaldoInicial());
+        cuenta.setEstado(movimientoDto.getCuenta().isEstado());
+        cuenta.setId(movimientoDto.getCuenta().getId());
+        cuenta.setClienteId(movimientoDto.getCuenta().getClienteId());
         movimiento.setCuenta(cuenta);
         return movimiento;
     }

@@ -56,6 +56,7 @@ public class CuentaController {
         cuentadto.setSaldoInicial(cuenta.getSaldoInicial());
         cuentadto.setEstado(cuenta.isEstado());
         cuentadto.setId(cuenta.getId());
+        cuentadto.setClienteId(cuenta.getClienteId());
         return cuentadto;
     }
     private Cuenta cuentaDtoToCuenta(CuentaDto cuentaN) {
@@ -65,6 +66,7 @@ public class CuentaController {
         cuenta.setSaldoInicial(cuentaN.getSaldoInicial());
         cuenta.setEstado(cuentaN.isEstado());
         cuenta.setId(cuentaN.getId());
+        cuenta.setClienteId(cuentaN.getClienteId());
         return cuenta;
     }
 }
