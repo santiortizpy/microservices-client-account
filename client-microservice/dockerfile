@@ -4,10 +4,11 @@ FROM openjdk:17-jdk-slim
 # Establecer el directorio de trabajo
 VOLUME /tmp
 
-ARG JAR_FILE= target/movimientos-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE= target/persona-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} client-microservice.jar
 # Copiar el archivo JAR de la aplicación al contenedor
-ADD ${JAR_FILE} account-microservice.jar
-#COPY  account-microservice.jar
+#COPY  client-microservice.jar
+
 
 # Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "account-microservice.jar"]
+ENTRYPOINT ["java", "-jar", "client-microservice.jar"]
