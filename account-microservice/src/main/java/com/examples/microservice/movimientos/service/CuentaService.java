@@ -19,20 +19,7 @@ public class CuentaService {
     @Autowired
     CuentaRepository cuentaRepository;
 
-    private final WebClient webClient;
 
-    public CuentaService(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8080/clientes").build();
-    }
-
-    public Mono<ClienteDTO> getCliente(Long clienteId){
-        return webClient.get()
-                .uri("/{clienteId}",clienteId)
-                .retrieve()
-                .bodyToMono(ClienteDTO.class)
-                .onErrorResume(WebClientResponseException.NotFound.class, e -> Mono.empty())
-                .onErrorResume(WebClientResponseException.class, e -> Mono.empty());
-    }
     // ClienteDTO cliente = getCliente(movimiento.getClientId()).block();
     public Cuenta createCuenta(Cuenta cuenta) {
 

@@ -25,8 +25,8 @@ public class Cuenta {
     private double saldoInicial;
     @Column(name = "estado", nullable = false)
     private boolean estado;
-    @Column(name = "client_id", nullable = false)
-    private Long clientId;
+    @Column(name = "cliente_id", nullable = false)
+    private Long clienteId;
 
     @OneToMany(mappedBy = "cuenta", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Movimiento> movimientos;

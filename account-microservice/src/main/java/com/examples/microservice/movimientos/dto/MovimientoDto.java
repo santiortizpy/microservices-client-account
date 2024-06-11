@@ -19,5 +19,5 @@ public class MovimientoDto {
     private String tipoMovimiento;
     private double valor;
     private double saldo;
-    private Cuenta cuenta;
+    private CuentaDto cuenta;
 }

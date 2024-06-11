@@ -17,7 +17,7 @@ public class Movimiento {
     @Column(name = "movimiento_id")
     private Long id;
     @Column(name = "fecha")
-    private Date Fecha;
+    private Date fecha;
     @Column(name = "tipo_movimiento", length = 50,nullable = false)
     private String tipoMovimiento;
     @Column(name = "valor", nullable = false)

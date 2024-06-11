@@ -1,6 +1,8 @@
 package com.examples.microservice.movimientos.controller;
 
+import com.examples.microservice.movimientos.dto.CuentaDto;
 import com.examples.microservice.movimientos.dto.MovimientoDto;
+import com.examples.microservice.movimientos.model.Cuenta;
 import com.examples.microservice.movimientos.model.Movimiento;
 import com.examples.microservice.movimientos.service.MovimientoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +19,14 @@ public class MovimientoController {
     @Autowired
     private MovimientoService movimientoService;
 
-    @PostMapping("cuenta/{numeroCuenta}")
-    public ResponseEntity<MovimientoDto> createMovimiento(@PathVariable  String numeroCuenta, @RequestBody MovimientoDto movimientoDto){
-        Movimiento movimiento = movimientoService.createMovimiento(numeroCuenta,movimientoDtoToMovimiento(movimientoDto));
+    @PostMapping()
+    public ResponseEntity<MovimientoDto> createMovimiento(@RequestBody MovimientoDto movimientoDto){
+        Movimiento movimiento = movimientoService.createMovimiento(movimientoDtoToMovimiento(movimientoDto));
         return new ResponseEntity<>(movimientoToMovimientoDto(movimiento), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MovimientoDto> getMovimientoById(Long id){
+    public ResponseEntity<MovimientoDto> getMovimientoById(@PathVariable Long id){
         MovimientoDto movimiento = movimientoToMovimientoDto(  movimientoService.getMovimientoById(id));
         return new ResponseEntity<>(movimiento, HttpStatus.OK);
     }
@@ -35,7 +37,7 @@ public class MovimientoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MovimientoDto> updateMovimiento(Long id, MovimientoDto movimientoDto){
+    public ResponseEntity<MovimientoDto> updateMovimiento(@PathVariable Long id, @RequestBody MovimientoDto movimientoDto){
         Movimiento movimiento = movimientoService.updateMovimiento(id, movimientoDtoToMovimiento(movimientoDto));
         if(movimiento != null){
             return new ResponseEntity<>(movimientoToMovimientoDto(movimiento), HttpStatus.OK);
@@ -45,7 +47,7 @@ public class MovimientoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMovimientoById(Long id){
+    public ResponseEntity<Void> deleteMovimientoById(@PathVariable Long id){
         movimientoService.deleteMovimientoById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -57,6 +59,14 @@ public class MovimientoController {
         movimiento.setTipoMovimiento(movimientoDto.getTipoMovimiento());
         movimiento.setSaldo(movimientoDto.getSaldo());
         movimiento.setId(movimientoDto.getId());
+        Cuenta cuenta = new Cuenta();
+        cuenta.setTipoCuenta(movimiento.getCuenta().getTipoCuenta());
+        cuenta.setNumeroCuenta(movimiento.getCuenta().getNumeroCuenta());
+        cuenta.setSaldoInicial(movimiento.getCuenta().getSaldoInicial());
+        cuenta.setEstado(movimiento.getCuenta().isEstado());
+        cuenta.setId(movimiento.getCuenta().getId());
+        cuenta.setClienteId(movimiento.getCuenta().getClienteId());
+        movimiento.setCuenta(cuenta);
         return movimiento;
     }
 
@@ -67,6 +77,14 @@ public class MovimientoController {
         movimientoDto.setTipoMovimiento(movimiento.getTipoMovimiento());
         movimientoDto.setSaldo(movimiento.getSaldo());
         movimientoDto.setId(movimiento.getId());
+        CuentaDto cuenta = new CuentaDto();
+        cuenta.setTipoCuenta(movimiento.getCuenta().getTipoCuenta());
+        cuenta.setNumeroCuenta(movimiento.getCuenta().getNumeroCuenta());
+        cuenta.setSaldoInicial(movimiento.getCuenta().getSaldoInicial());
+        cuenta.setEstado(movimiento.getCuenta().isEstado());
+        cuenta.setId(movimiento.getCuenta().getId());
+        cuenta.setClienteId(movimiento.getCuenta().getClienteId());
+        movimientoDto.setCuenta(cuenta);
         return movimientoDto;
     }
 }
